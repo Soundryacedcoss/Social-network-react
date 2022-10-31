@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import  { useState } from "react";
+import Feed from './Feed';
 import './App.css';
-
+import Login from './Login';
+import { createContext } from "react";
+import Signup from './Signup';
+export const Datastore=createContext();
 function App() {
+  const[logdata,setLogdata]=useState([])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Datastore.Provider value={(logdata,setLogdata)}>
+      <Routes>
+        <Route path='/' element={<Signup/>}/>
+        <Route path='/Login' element={<Login/>}/>
+        <Route path='/Feed' element={<Feed/>}/>
+      </Routes>
+      </Datastore.Provider>
     </div>
   );
 }
