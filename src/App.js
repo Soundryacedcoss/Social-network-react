@@ -12,9 +12,9 @@ function App() {
     <div className="App">
       <Datastore.Provider value={(logdata,setLogdata)}>
       <Routes>
-        <Route path='/' element={<Signup/>}/>
+        <Route path='/' element={<Feed/>}/>
         <Route path='/Login' element={<Login/>}/>
-        <Route path='/Feed' element={<Feed/>}/>
+        {/* <Route path='/Feed' element={<Feed/>}/> */}
       </Routes>
       </Datastore.Provider>
     </div>

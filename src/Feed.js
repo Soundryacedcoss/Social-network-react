@@ -8,6 +8,7 @@ export default function Feed() {
   const [comment, setComment] = useState("");
   const [output, setOutput] = useState([]);
   const [img, setImg] = useState("");
+  const [button,buttonHandler]=useState("")
   // functions for taking the value from input boxes
   const commentHandler = (e) => {
     setComment(e.target.value);
@@ -19,6 +20,7 @@ export default function Feed() {
   };
 //   post button function
   const postHandler = (e) => {
+    setComment("")
     var obj = {
       data: comment,
       image:img,
@@ -34,6 +36,7 @@ export default function Feed() {
 //   edit function
   const editHandler = (val) => {
     for (let i = 0; i < output.length; i++) {
+  
       document.getElementById("Submit_id").disabled = true;
       if (val === output[i].id) {
         setComment([output[i].data]);
@@ -74,25 +77,29 @@ export default function Feed() {
           placeholder="write comment Here"
         ></textarea>
         <br />
+        <input id="files" type="file" onChange={UploadFileHandler} />
+        <br />
         <button className="postbutton" onClick={postHandler}>
           post
         </button>
-        <div>
+        <div >
           <ul>
             {output.map((element) => (
-              <li><div className="displayimg"><img id="img1" src={element.image} alt="" /></div> 
-              {element.data} {""}{" "}
-                <button id="Submit_id" onClick={() => editHandler(element.id)}>
-                  edit
+              <div className="Posted">
+              <li ><div className="displayimg"><img id="img1" src={element.image} alt="" /></div> 
+              {element.data} {""}{" "} <br />
+                <button id="Submit_id"  onClick={() => editHandler(element.id)}>
+                ✏️
                 </button>{" "}
                 <button onClick={() => deleteHandler(element.id)}>
-                  Delete
+                ❌
                 </button>{" "}
               </li>
+              </div>
             ))}
           </ul>{" "}
         </div>
-        <input id="files" type="file" onChange={UploadFileHandler} />
+        
         <div><button onClick={backButtonHandler} className="postbutton">Back</button></div>
       </div>
      

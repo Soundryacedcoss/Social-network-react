@@ -108,3 +108,28 @@ textarea {
 #img1{
   width: 55%;
 }
+#Submit_id{
+  background-color: #04AA6D;
+  color: white;
+  padding: 2px 2px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 6%;
+}
+ul{
+  list-style: none;
+}
+li{
+  justify-content: center;
+}
+ul li {
+  padding: 8px 16px;
+  background-color: #008CBA;
+}
+
+ul li:last-child {
+  border-bottom: none
+}
+
+
